@@ -1,8 +1,8 @@
 # 曲阜师范大学硕博学位论文LaTeX模板
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![GitHub stars](https://img.shields.io/github/stars/username/QFNU-Thesis-LaTeX?style=social)](https://github.com/username/QFNU-Thesis-LaTeX/stargazers)
-[![GitHub forks](https://img.shields.io/github/forks/username/QFNU-Thesis-LaTeX?style=social)](https://github.com/username/QFNU-Thesis-LaTeX/network/members)
+[![GitHub stars](https://img.shields.io/github/stars/wtzmx/QFNU-Thesis-LaTeX?style=social)](https://github.com/wtzmx/QFNU-Thesis-LaTeX/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/wtzmx/QFNU-Thesis-LaTeX?style=social)](https://github.com/wtzmx/QFNU-Thesis-LaTeX/network/members)
 
 本项目提供了一个用于排版曲阜师范大学硕士、博士学位论文的LaTeX模板。该模板严格按照学校研究生院的学位论文格式要求设计，支持中英文摘要、图表、公式、算法、参考文献等学术论文的必要元素。
 
@@ -71,6 +71,11 @@ QFNU-Thesis-LaTeX/
 - [TeXstudio](https://www.texstudio.org/)：跨平台LaTeX编辑器，提供良好的编辑体验
 - [VS Code](https://code.visualstudio.com/) + [LaTeX Workshop插件](https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop)：灵活且功能强大
 - [Overleaf](https://www.overleaf.com/)：在线LaTeX编辑器，无需本地安装
+
+### Overleaf模板
+
+本模板已在Overleaf上提供，您可以通过以下链接直接使用：
+- [曲阜师范大学硕博学位论文LaTeX模板 - Overleaf](https://cn.overleaf.com/read/hjxygkfprcnr#7fc515)
 
 ### 使用方法
 
