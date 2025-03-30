@@ -80,23 +80,31 @@ QFNU-Thesis-LaTeX/
 
 ```latex
 % 基本信息
-\title{你的论文标题}                       % 论文标题
-\author{你的姓名}                         % 作者姓名
-\newcommand{\thesuper}{导师姓名\hspace{0.5em}职称}   % 指导教师
-\newcommand{\thedept}{你的学院}                     % 培养单位
-\newcommand{\themajor}{你的专业}                    % 一级学科
-\newcommand{\thesubmajor}{二级学科（如有）}          % 二级学科
+\title{基于Latex的曲阜师范大学硕博论文模版}    % 论文标题
+\author{作者}                              % 作者姓名
+
+% 自定义信息
+\newcommand{\thesuper}{导师\hspace{0.5em}教授}      % 指导教师
+\newcommand{\thedept}{网络空间安全学院}               % 培养单位
+\newcommand{\themajor}{软件工程}                     % 一级学科
+\newcommand{\thesubmajor}{}                         % 二级学科（若无则留空）
 
 % 日期和时间
-\newcommand{\thecompletiondate}{YYYY年MM月DD日}     % 论文完成日期
-\newcommand{\thedefenddate}{YYYY年MM月DD日}         % 答辩日期
+\newcommand{\thecompletiondate}{2025年3月30日}       % 论文完成日期
 
-% 论文类型
-\newcommand{\thesistype}{Master}                    % 可选：Master（硕士）, Doctor（博士）
+% 论文类型 - 手动填写，默认为"硕士"
+\newcommand{\thesistype}{硕士}                      % 学位类型，直接填写，如：硕士、博士
+
+% 封面页信息
+\newcommand{\thegrade}{2025}                        % 届次
+\newcommand{\theschoolcode}{10446}                  % 学校代码
+\newcommand{\theclassnum}{}                         % 分类号
+\newcommand{\thesecretlevel}{公开}                  % 密级
+\newcommand{\thestudentid}{2022000000}                        % 学号
 
 % 摘要关键词
-\newcommand{\zhkeywords}{关键词1，关键词2，关键词3}     % 中文关键词
-\newcommand{\enkeywords}{keyword1, keyword2, keyword3} % 英文关键词
+\newcommand{\zhkeywords}{Latex，曲阜师范大学硕博论文模版}  % 中文关键词
+\newcommand{\enkeywords}{Latex, Qufu Normal University, Master and Doctor Thesis Template}  % 英文关键词
 ```
 
 #### 2. 编写摘要
@@ -238,8 +246,7 @@ xelatex main
 
 ## 版本历史
 
-- v2.0.0 (2025.02.24)：优化模板结构，实现样式与内容分离
-- v1.0.0 (2025.02.23)：首次发布
+- v1.0.0 (2025.03.30)：首次发布
 
 ## 贡献指南
 
