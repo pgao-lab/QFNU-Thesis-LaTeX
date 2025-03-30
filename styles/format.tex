@@ -1,0 +1,325 @@
+%----------------------------------------------------------------------------------------
+% 格式设置文件 - 包含所有样式定义
+%----------------------------------------------------------------------------------------
+
+%----------------------------------------------------------------------------------------
+% 字体设置
+%----------------------------------------------------------------------------------------
+% 中文字体设置 - 使用本地字体文件
+\setCJKmainfont[
+    Path = ./font/,
+    AutoFakeSlant = 0.4,
+    AutoFakeBold = 3.17
+]{FangSong.ttf}
+
+\setCJKsansfont[
+    Path = ./font/,
+    AutoFakeBold = 3.17
+]{simhei.ttf}
+
+\setCJKmonofont[
+    Path = ./font/,
+    AutoFakeBold = 3.17
+]{KaiTi.ttf}
+
+% 设置西文主字体为Times New Roman（使用本地字体文件）
+\setmainfont[
+    Path = ./font/,
+    BoldFont = {Times New Roman Bold.ttf},
+    ItalicFont = {Times New Roman Italic.ttf},
+    BoldItalicFont = {Times New Roman Bold Italic.ttf}
+]{Times New Roman.ttf}
+
+% 所有西文字体统一使用Times New Roman
+\setsansfont[
+    Path = ./font/,
+    BoldFont = {Times New Roman Bold.ttf},
+    ItalicFont = {Times New Roman Italic.ttf},
+    BoldItalicFont = {Times New Roman Bold Italic.ttf}
+]{Times New Roman.ttf}
+
+% 设置等宽字体为Courier New，用于代码显示
+\setmonofont{Courier New}
+
+% 定义英文标题字体
+\newfontfamily\entitlefont[
+    Path = ./font/,
+    BoldFont = {Times New Roman Bold.ttf},
+    ItalicFont = {Times New Roman Italic.ttf},
+    BoldItalicFont = {Times New Roman Bold Italic.ttf}
+]{Times New Roman.ttf}
+
+% 中文字体族设置
+\setCJKfamilyfont{zhsong}[
+    Path = ./font/,
+    AutoFakeBold = 3.17
+]{SimSun.ttf}
+\setCJKfamilyfont{zhhei}[
+    Path = ./font/,
+    AutoFakeBold = 3.17
+]{simhei.ttf}
+\setCJKfamilyfont{zhfs}[
+    Path = ./font/,
+    AutoFakeBold = 3.17
+]{FangSong.ttf}
+\setCJKfamilyfont{zhkai}[
+    Path = ./font/,
+    AutoFakeBold = 3.17
+]{KaiTi.ttf}
+
+% 中文字体命令
+\newcommand{\songti}{\CJKfamily{zhsong}}    % 宋体
+\newcommand{\heiti}{\CJKfamily{zhhei}}      % 黑体
+\newcommand{\fangsong}{\CJKfamily{zhfs}}    % 仿宋
+\newcommand{\kaishu}{\CJKfamily{zhkai}}     % 楷书
+
+% 字体定义 - 因已经在上面定义过字体，此处保留但不再重新定义
+\newfontfamily{\arial}{Arial}                % 定义Arial字体
+\newfontfamily{\timesnewroman}[
+    Path = ./font/,
+    BoldFont = {Times New Roman Bold.ttf},
+    ItalicFont = {Times New Roman Italic.ttf},
+    BoldItalicFont = {Times New Roman Bold Italic.ttf}
+]{Times New Roman.ttf}  % 定义Times New Roman字体
+
+% 中文标点设置
+\xeCJKsetup{
+  AutoFakeBold=true,
+  AutoFakeSlant=true,
+  PunctStyle=quanjiao                        % 全角式标点
+}
+\punctstyle{kaiming}
+\MakeOuterQuote{"}
+
+%----------------------------------------------------------------------------------------
+% 页面设置
+%----------------------------------------------------------------------------------------
+\geometry{
+    top=2.54cm,
+    bottom=2.54cm,
+    left=3cm,
+    right=3cm,
+    headheight=13pt                          % 页眉高度
+}  
+
+% 添加全局断行设置
+\tolerance=1000
+\emergencystretch=\hsize
+
+%----------------------------------------------------------------------------------------
+% 目录格式设置
+%----------------------------------------------------------------------------------------
+% 设置目录点线
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}  % 为section级别添加点线
+\renewcommand{\cftdotsep}{0.8}               % 设置点的间距
+
+%----------------------------------------------------------------------------------------
+% 章节标题格式设置
+%----------------------------------------------------------------------------------------
+% 一级标题格式
+\titleformat{\section}{\centering\heiti\zihao{-3}\bfseries}{第\arabic{section}章}{1em}{}
+\titlespacing{\section}{0pt}{24pt}{18pt}     % 设置章节标题的间距
+
+% 二级标题格式
+\titleformat{\subsection}{\heiti\zihao{4}}{\arabic{section}.\arabic{subsection}}{1em}{}
+\titlespacing{\subsection}{0pt}{10pt}{10pt}  % 设置二级标题的间距
+
+% 三级标题格式
+\titleformat{\subsubsection}{\heiti\zihao{-4}\bfseries}{\arabic{section}.\arabic{subsection}.\arabic{subsubsection}}{1em}{}
+\titlespacing{\subsubsection}{0pt}{10pt}{10pt}  % 设置三级标题的间距
+
+% 四级标题格式
+\titleformat{\paragraph}
+  {\songti\zihao{-4}\bfseries}               % 格式：宋体，小四号，加粗
+  {}                                         % 无标签
+  {0em}                                      % 标签与标题间距
+  {（\arabic{paragraph}）}                   % 使用阿拉伯数字，带中文括号
+  []                                         % 后缀为空
+\titlespacing{\paragraph}{0pt}{12pt}{0em}    % 段落标题间距
+
+% 确保段落计数器正确工作
+\setcounter{secnumdepth}{4}                  % 允许到第四级标题的编号
+\counterwithin{paragraph}{subsubsection}     % 段落计数器依赖于三级标题
+
+%----------------------------------------------------------------------------------------
+% 设置列表环境参数
+%----------------------------------------------------------------------------------------
+\setlength{\leftmargini}{2em}               % 一级列表缩进
+\setlength{\leftmarginii}{2em}              % 二级列表缩进
+\setlength{\itemindent}{0em}                % 项目缩进
+\setlength{\labelsep}{0.5em}                % 标签和文本间距
+\setlength{\labelwidth}{2em}                % 标签宽度
+
+% 列表格式设置
+\setlist{nosep}                             % 移除所有列表间距
+\setlist[enumerate,1]{label=\arabic{enumi}.}  % 一级编号格式
+\setlist[enumerate,2]{label=(\arabic{enumii})}  % 二级编号格式
+\setlist[itemize,1]{label={}}               % 移除一级itemize的圆点
+
+%----------------------------------------------------------------------------------------
+% 图表标题格式设置
+%----------------------------------------------------------------------------------------
+% 图表按章节编号设置
+\numberwithin{figure}{section}              % 将图片计数器与章节关联
+\renewcommand{\thefigure}{\thesection-\arabic{figure}}  % 设置图片编号格式为(章节号-图片号)
+\numberwithin{table}{section}               % 将表格计数器与章节关联
+\renewcommand{\thetable}{\thesection-\arabic{table}}    % 设置表格编号格式为(章节号-表格号)
+
+% 公式按章节编号设置
+\numberwithin{equation}{section}           % 将公式计数器与章节关联
+\renewcommand{\theequation}{\thesection-\arabic{equation}}  % 设置公式编号格式为(章节号-公式号)
+
+% 自定义标题字体
+\DeclareCaptionFont{myfont}{\songti\zihao{5}}
+
+% 图片标题格式
+\captionsetup[figure]{
+    font=myfont,                             % 使用自定义字体
+    name=图,                                % 确保标题前缀为"图"
+    justification=centering,                 % 居中对齐
+    skip=5pt,                               % 段后间距
+    belowskip=0pt                            % 段前间距
+}
+
+% 表格标题格式
+\captionsetup[table]{
+    font=myfont,                             % 使用自定义字体
+    name=表,                                % 确保标题前缀为"表"
+    justification=centering,                 % 居中对齐
+    skip=0pt,                                % 段后间距
+    belowskip=0pt,                          % 段前间距
+    position=top                             % 标题在表格上方
+}
+
+%----------------------------------------------------------------------------------------
+% verbatim环境和代码格式设置
+%----------------------------------------------------------------------------------------
+% 设置FancyVerbatim的默认格式
+\fvset{
+    fontfamily=courier,                     % 使用Courier字体族
+    fontsize=\zihao{5},                     % 设置字号为5号
+    numbers=left,                           % 行号在左侧
+    numbersep=5pt,                          % 行号与代码间距
+    frame=single,                           % 单线框
+    framesep=5pt,                           % 框与内容间距
+    commandchars=\\\{\},                    % 命令字符
+    xleftmargin=15pt,                       % 左边距
+    xrightmargin=0pt                        % 右边距
+}
+
+% 定义代码块环境
+\DefineVerbatimEnvironment{codeblock}{Verbatim}{
+    fontfamily=courier,
+    fontsize=\zihao{5},
+    numbers=left,
+    frame=single,
+    framesep=5pt,
+    xleftmargin=15pt
+}
+
+% 使用listings宏包设置代码格式
+\lstset{
+    basicstyle=\ttfamily\zihao{5},          % 基本样式
+    numbers=left,                           % 行号显示在左侧
+    numberstyle=\tiny\color{gray},          % 行号样式
+    stepnumber=1,                           % 行号步进
+    numbersep=5pt,                          % 行号与代码的距离
+    backgroundcolor=\color{white},          % 背景色
+    showspaces=false,                       % 不显示空格
+    showstringspaces=false,                 % 不显示字符串中的空格
+    showtabs=false,                         % 不显示制表符
+    frame=single,                           % 边框
+    tabsize=2,                              % 制表符长度
+    captionpos=b,                           % 标题位置
+    breaklines=true,                        % 自动断行
+    breakatwhitespace=false,                % 只在空格处断行
+    keywordstyle=\color{blue},              % 关键字样式
+    commentstyle=\color{olive},             % 注释样式
+    stringstyle=\color{red},                % 字符串样式
+    escapeinside={\%*}{*\%},                % 逃逸字符
+    xleftmargin=15pt,                       % 左边距
+    xrightmargin=0pt,                       % 右边距
+    aboveskip=1em,                          % 上间距
+    belowskip=1em                           % 下间距
+}
+
+% 设置普通verbatim环境格式
+\RecustomVerbatimEnvironment{verbatim}{Verbatim}{
+    fontfamily=courier,
+    fontsize=\zihao{5},
+    frame=single,
+    framesep=5pt,
+    xleftmargin=15pt
+}
+
+%----------------------------------------------------------------------------------------
+% 参考文献格式设置
+%----------------------------------------------------------------------------------------
+% 设置参考文献的字体
+\renewcommand{\bibfont}{\zihao{-4}\songti\timesnewroman}  % 设置基本字号，中文用宋体，英文用Times New Roman
+
+%----------------------------------------------------------------------------------------
+% 算法环境设置
+%----------------------------------------------------------------------------------------
+% 修改算法环境中的标题为中文
+\floatname{algorithm}{算法}                          % 将 Algorithm 改为 算法
+
+%----------------------------------------------------------------------------------------
+% 自定义命令
+%----------------------------------------------------------------------------------------
+% 中文引号命令
+\newcommand{\cquote}[1]{"\hskip 0pt #1\hskip 0pt "}
+
+% 垂直排列字符
+\makeatletter
+\newcommand{\vertchar}[1]{%
+    \@tfor\tmp:=#1\do{\tmp\\}%
+}
+\makeatother
+
+% 添加这个新命令来处理无编号章节的页眉
+\newcommand{\unnumberedsection}[1]{%
+    \phantomsection
+    \section*{#1}
+    \addcontentsline{toc}{section}{#1}
+    \markboth{#1}{}
+}
+
+% 定义对勾和叉号
+\newcommand{\cmark}{\ding{51}}               % 对勾符号
+\newcommand{\xmark}{\ding{55}}               % 叉号符号
+
+%----------------------------------------------------------------------------------------
+% 页眉页脚设置
+%----------------------------------------------------------------------------------------
+% 页眉页脚样式设置
+\pagestyle{fancy}
+\fancyhf{}                                   % 清除所有页眉页脚
+\renewcommand{\headrulewidth}{0.5pt}         % 页眉横线宽度
+
+% 定义正文页面样式
+\newcommand{\mainpagestyle}{%
+    \pagestyle{fancy}
+    \fancyhf{}
+    \renewcommand{\headrulewidth}{0.5pt}
+    \fancyhead[C]{\zihao{5}\songti \leftmark}    % 页眉中间显示当前章节名称
+    \fancyfoot[C]{\zihao{5}\rmfamily \thepage}   % 页脚中间显示页码
+}
+
+% 重新定义章节标记格式，使其适合页眉显示
+\renewcommand{\sectionmark}[1]{\markboth{第\arabic{section}章\quad #1}{}}
+
+% 定义前言页面样式（罗马数字页码）
+\newcommand{\frontmatterpagestyle}{%
+    \pagestyle{fancy}
+    \fancyhf{}
+    \renewcommand{\headrulewidth}{0.5pt}
+    \fancyfoot[C]{\zihao{5}\rmfamily \thepage}   % 页脚中间显示页码
+}
+
+% 设置正文默认字体格式
+\newcommand{\setmaintextstyle}{%
+    \renewcommand{\normalsize}{\songti\zihao{-4}}  % 设置默认字体为宋体小四号
+    \setlength{\baselineskip}{20pt}              % 设置行距
+    \normalsize                                  % 激活设置
+} 

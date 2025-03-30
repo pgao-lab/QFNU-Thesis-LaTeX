@@ -1,0 +1,56 @@
+%----------------------------------------------------------------------------------------
+% 摘要部分
+%----------------------------------------------------------------------------------------
+% 设置页码格式为大写罗马数字，并从摘要页开始计数
+\newpage
+\setcounter{page}{1}
+\pagenumbering{Roman}
+
+% 设置中文摘要页眉和页码
+\frontmatterpagestyle  % 使用前言样式
+\fancyhead[C]{\zihao{5}\songti 摘要}     % 页眉中间显示"摘要"
+
+% 中文摘要
+\thispagestyle{fancy}
+\phantomsection
+\addcontentsline{toc}{section}{摘要}     % 添加中文摘要到目录
+\begin{center}
+    {\zihao{3}\heiti\bfseries           % 黑体三号加粗
+    摘要
+    }
+\end{center}
+
+{\zihao{-4}\songti                       % 宋体小四号
+\setlength{\baselineskip}{20pt}          % 设置行距
+\input{chapters/Abstract1}
+}
+
+\vspace{1em}                             % 添加一些间距
+{\zihao{-4}\songti                       % 宋体小四号
+\setlength{\baselineskip}{20pt}          % 设置行距
+\noindent\textbf{关键词：}\zhkeywords
+
+% 英文摘要
+\newpage
+% 设置英文摘要页眉和页码
+\frontmatterpagestyle  % 使用前言样式
+\fancyhead[C]{\zihao{5}\timesnewroman Abstract}  % 页眉改为Times New Roman字体
+
+% 英文摘要页
+\phantomsection
+\addcontentsline{toc}{section}{Abstract}  % 添加英文摘要到目录
+\begin{center}
+    {\zihao{3}\timesnewroman\bfseries     % 三号Times New Roman加粗
+    Abstract
+    }
+\end{center}
+
+{\zihao{-4}\selectfont\timesnewroman     % 小四号Times New Roman
+\setlength{\baselineskip}{20pt}          % 设置行距
+\input{chapters/Abstract2}
+}
+
+\vspace{1em}                             % 添加一些间距
+{\zihao{-4}\timesnewroman                % Keywords也使用Times New Roman
+\setlength{\baselineskip}{20pt}          % 设置行距
+\noindent\textbf{Keywords:} \enkeywords

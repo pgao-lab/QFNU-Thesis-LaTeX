@@ -1,0 +1,63 @@
+%----------------------------------------------------------------------------------------
+% 目录设置
+%----------------------------------------------------------------------------------------
+% 添加这些命令来确保目录所有页面都显示页眉
+\fancypagestyle{plain}{%
+    \fancyhf{}
+    \renewcommand{\headrulewidth}{0.5pt}
+    \fancyhead[C]{\zihao{5}\songti 目录}
+    \fancyfoot[C]{\zihao{5}\rmfamily \thepage}
+}
+
+% 定义目录生成命令
+\newcommand{\maketableofcontents}{
+    % 在开始目录前设置页码格式
+    \clearpage
+    \setcounter{page}{1}                         % 从1开始计数
+    \pagenumbering{arabic}                       % 使用阿拉伯数字
+    \pagestyle{fancy}
+    \fancyhf{}                                   % 清除所有页眉页脚
+    \renewcommand{\headrulewidth}{0.5pt}         % 页眉横线宽度
+    \fancyhead[C]{\zihao{5}\songti 目录}         % 页眉中间显示"目录"
+    \fancyfoot[C]{\zihao{5}\rmfamily \thepage}   % 页脚中间显示页码
+
+    % 在目录生成前临时隐藏超链接边框
+    \hypersetup{
+        pdfborder={0 0 0}           % 完全隐藏边框
+    }
+
+    % 设置目录标题格式
+    \renewcommand{\contentsname}{
+        {\zihao{3}\heiti\bfseries 目录}
+    }
+
+    % 设置目录内容格式
+    {\zihao{-4}\songti                           % 宋体小四号
+    \setlength{\baselineskip}{20pt}              % 设置行距
+
+    % 修改section级别的目录格式
+    \renewcommand{\cftsecpresnum}{第}
+    \renewcommand{\cftsecaftersnum}{章\hspace{0.2em}}  % 从0.5em减小到0.2em
+    \setlength{\cftsecnumwidth}{3.5em}             % 从4em减小到3.5em
+
+    % 设置subsection和subsubsection的格式
+    \setlength{\cftsubsecindent}{2em}            % 二级标题缩进
+    \setlength{\cftsubsubsecindent}{4em}         % 三级标题缩进
+    \setlength{\cftsubsecnumwidth}{1.8em}        % 从2em减小到1.8em
+    \setlength{\cftsubsubsecnumwidth}{2.5em}     % 从3em减小到2.5em
+
+    % 设置目录项的行距
+    \setlength{\cftbeforesecskip}{0pt}           % 一级标题间距
+    \setlength{\cftbeforesubsecskip}{0pt}        % 二级标题间距
+    \setlength{\cftbeforesubsubsecskip}{0pt}     % 三级标题间距
+
+    % 生成目录
+    \begin{center}                               % 居中显示目录标题
+    \tableofcontents
+    \end{center}}
+
+    % 目录生成后恢复超链接边框
+    \hypersetup{
+        pdfborder={0 0 1}           % 恢复边框
+    }
+} 

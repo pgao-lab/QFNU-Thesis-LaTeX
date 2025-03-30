@@ -1,0 +1,78 @@
+\documentclass[a4paper, 12pt]{article}
+
+%----------------------------------------------------------------------------------------
+% 导入样式包和格式设置
+%----------------------------------------------------------------------------------------
+% 导入包
+\input{styles/packages}
+
+% 导入文档信息
+\input{styles/info}
+
+% 导入格式设置
+\input{styles/format}
+
+% 导入封面定义文件
+\input{front/cover}
+
+%----------------------------------------------------------------------------------------
+% 目录设置
+%----------------------------------------------------------------------------------------
+% 导入目录设置文件
+\input{front/tableofcontents}
+
+\begin{document}
+
+% 插入摘要
+\input{front/abstract}
+
+% 生成目录
+\maketableofcontents
+
+%----------------------------------------------------------------------------------------
+% 正文部分
+%----------------------------------------------------------------------------------------
+\clearpage
+% 重置页码为阿拉伯数字，从1开始
+\setcounter{page}{1}
+\pagenumbering{arabic}
+
+% 设置正文样式
+\setmaintextstyle
+\mainpagestyle
+
+% 导入各章节内容
+\clearpage
+\input{chapters/chapter1}
+
+\clearpage
+\input{chapters/chapter2}
+
+\clearpage
+\input{chapters/chapter3}
+
+\clearpage
+\input{chapters/chapter4}
+
+\clearpage
+\input{chapters/chapter5}
+
+%----------------------------------------------------------------------------------------
+% 参考文献
+%----------------------------------------------------------------------------------------
+\clearpage
+\phantomsection
+\addcontentsline{toc}{section}{参考文献}
+{\zihao{-4}\songti
+\setlength{\baselineskip}{20pt}              % 设置行距为 20 磅
+\setlength{\bibsep}{0pt}                     % 设置参考文献条目之间的间距
+\bibliography{bib/references}
+}
+
+\clearpage
+\input{chapters/chapter6}
+
+\clearpage
+\input{chapters/chapter7}
+
+\end{document}

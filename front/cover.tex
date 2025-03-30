@@ -1,0 +1,89 @@
+%----------------------------------------------------------------------------------------
+% 自定义封面
+%----------------------------------------------------------------------------------------
+\makeatletter
+\def\makecover{
+    % 第一页 封面页
+    \thispagestyle{empty}
+    \begin{flushleft}
+        \zihao{4}\selectfont                 % 大四号字体
+        \songti                              % 宋体
+        \thegrade 届学术学位硕士研究生学位论文\\
+        分类号：\underline{\makebox[4cm]{\theclassnum}} \hfill 学校代码：\underline{\makebox[4cm]{\theschoolcode}} \\
+        密\quad 级：\underline{\makebox[4cm]{\thesecretlevel}} \hfill 学\quad\quad 号：\underline{\makebox[4cm]{\thestudentid}}
+    \end{flushleft}
+    \vspace*{5pt}                           % 调整logo位置
+    \begin{center}
+        \includegraphics[width=8cm]{figure/logo/logo-1.png}\\[30pt]  % 第一个logo
+        {\zihao{2}\selectfont                % 小一号字体
+        \heiti\bfseries                      % 黑体加粗
+        硕~~~士~~~学~~~位~~~论~~~文}\\[30pt]  % 根据文档类型动态设置
+        \includegraphics[width=3.5cm]{figure/logo/logo-2.png}\\[50pt]  % 添加第二个logo
+        {\zihao{2}\heiti\bfseries
+        \begin{minipage}{\textwidth}
+        \centering
+        \setlength{\baselineskip}{0.8\baselineskip}  % 设置行距
+        \@title
+        \end{minipage}}\\[30pt]  % 黑体小一号加粗标题
+        {\zihao{4}\songti                    % 宋体四号加粗
+        \begin{tabular}{rc}                  % 右对齐的第一列，居中对齐的第二列
+            \makebox[4em][s]{论文作者}：        & {\@author} \\[8pt]
+            \makebox[4em][s]{指导教师}：      & {\thesuper} \\[8pt]
+            \makebox[4em][s]{培养单位}：      & {\thedept} \\[8pt]
+            \makebox[4em][s]{一级学科}：      & {\themajor} \\[8pt]
+            \makebox[4em][s]{二级学科}：      & {\thesubmajor} \\[8pt]
+            \makebox[4em][s]{完成时间}：      & {\thecompletiondate} \\
+        \end{tabular}}
+    \end{center}
+    
+    % 第二页 扉页
+    \newpage
+    \thispagestyle{empty}
+    \begin{center}
+        \vspace*{\fill}                      % 上方填充
+        {\zihao{4}\fangsong\bfseries         % 仿宋四号加粗
+        \begin{tabular}{c}
+            \begin{minipage}[c][6cm]{2cm}\center\vertchar{硕士学位论文}\end{minipage} \\
+            \begin{minipage}[c][6cm]{2cm}\center\makeatletter\protected@edef\tmp{\themajor}\expandafter\vertchar\expandafter{\tmp}\makeatother\end{minipage} \\
+            \begin{minipage}[c][6cm]{2cm}\center\makeatletter\protected@edef\tmp{\@author}\expandafter\vertchar\expandafter{\tmp}\makeatother\end{minipage} \\
+            \begin{minipage}[c][6cm]{2cm}\center\vertchar{曲阜师范大学}\end{minipage}
+        \end{tabular}}
+        \vspace*{\fill}                      % 下方填充
+    \end{center}
+    
+    % 第三页 - 独创性声明和授权书
+    \newpage
+    \thispagestyle{empty}
+    {\zihao{4}\songti\linespread{1.5}\selectfont  % 宋体四号，行距1.5倍
+    
+    \centerline{{\zihao{-2}\songti\bfseries\linespread{1.0}\selectfont\spaceskip=1.42pt  % 宋体小二号加粗，使用单倍行距，字间距0.05cm
+    曲阜师范大学研究生学位论文独创性声明}}
+    \vspace{1em}
+    
+    \centerline{（根据学位论文类型相应地在"$\square$"中划"$\checkmark$"）}
+    
+    本人郑重声明：此处所提交的博士$\square$/硕士$\square$ 论文《\sounder{\@title}》，是本人在导师指导下，在曲阜师范大学攻读博士$\square$/硕士$\square$ 学位期间独立进行研究工作所取得的成果。论文中除注明部分外不包含他人已经发表或撰写的研究成果。对本文的研究工作做出重要贡献的个人和集体，均已在文中以明确的方式注明。本声明的法律结果将完全由本人承担。
+    
+    \vspace{2em}
+    作者签名：\hspace{6cm} 日期：\hspace{3cm}
+    
+    \vspace{4em}
+    \centerline{{\zihao{-2}\songti\bfseries\linespread{1.0}\selectfont\spaceskip=1.42pt  % 宋体小二号加粗，单倍行距，字间距0.05cm
+    曲阜师范大学研究生学位论文使用授权书}}
+    \vspace{1em}
+    
+    \centerline{（根据学位论文类型相应地在"$\square$"中划"$\checkmark$"）}
+    
+    《\sounder{\@title}》系本人在曲阜师范大学攻读博士$\square$/硕士$\square$ 学位期间，在导师指导下完成的博士$\square$/硕士$\square$ 学位论文。本论文的研究成果归曲阜师范大学所有，本论文的研究内容不得以其他单位的名义发表。本人完全了解曲阜师范大学关于保存、使用学位论文的规定，同意学校保留并向有关部门送交论文的复印件和电子版本，允许论文被查阅和借阅。本人授权曲阜师范大学，可以采用影印或其他复制手段保存论文，可以公开发表论文的全部或部分内容。
+    
+    \vspace{2em}
+    作者签名：\hspace{6cm} 日期：\hspace{3cm}
+    
+    \vspace{1em}
+    导师签名：\hspace{6cm} 日期：\hspace{3cm}
+    }
+}
+\makeatother 
+
+% 自动生成封面
+\AtBeginDocument{\makecover} 
